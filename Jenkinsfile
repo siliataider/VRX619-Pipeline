@@ -36,7 +36,7 @@ pipeline {
                 label 'uli46'
             }
             steps {
-                bat(script: "C:\\Tools\\jenkins-agent\\jenkins-scripts\\Nightly_tests.bat")
+                bat echo run Nightly tests 
             }
         }
         stage('Copy to ALAB') {
@@ -44,7 +44,7 @@ pipeline {
                 label 'uli46'
             }
             steps {
-                bat(script: "C:\\Tools\\jenkins-agent\\jenkins-scripts\\copy_to_alab.bat")
+                bat echo Copy to alab receprion 
             }
         }
     }
