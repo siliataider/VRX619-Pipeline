@@ -36,7 +36,7 @@ pipeline {
                 label 'uli46'
             }
             steps {
-                bat echo run Nightly tests 
+                bat "echo run Nightly tests"
             }
         }
         stage('Copy to ALAB') {
@@ -44,7 +44,7 @@ pipeline {
                 label 'uli46'
             }
             steps {
-                bat echo Copy to alab receprion 
+                bat "echo Copy to alab receprion" 
             }
         }
     }
