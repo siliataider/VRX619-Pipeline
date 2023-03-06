@@ -36,7 +36,7 @@ pipeline {
                 label 'uli46'
             }
             steps {
-                bat "echo run Nightly tests"
+                bat(script: "C:\\Tools\\jenkins-agent\\jenkins-scripts\\Nightly_tests.bat")
             }
         }
         stage('Copy to ALAB') {
@@ -44,8 +44,15 @@ pipeline {
                 label 'uli46'
             }
             steps {
-                bat "echo Copy to alab receprion" 
+                bat(script: "C:\\Tools\\jenkins-agent\\jenkins-scripts\\copy_to_alab.bat")
             }
+        }
+    }
+    post {
+        failure {
+            mail to: 'staider@maxlinear.com, sgreef@maxlinear.com, mbelghanou@maxlinear.com',
+                subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "Unfortunately, the VRX619 pipeline has failed. Please check the logs for more information."
         }
     }
 }
